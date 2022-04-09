@@ -1,2 +1,2 @@
 FOO=${FOO}
-BAR=${secrets.BAR}
+BAR=${{secrets.BAR}}
