@@ -21,9 +21,7 @@ jobs:
           FOO: fool
 
       - name: Check env
-        uses: actions/github-script@v6
-        with:
-          script: |
-            cat ./.env
-            echo ${FOO}
-            echo ${BAR}
+        run: |
+          cat ./.env
+          echo ${FOO}
+          echo ${BAR}
