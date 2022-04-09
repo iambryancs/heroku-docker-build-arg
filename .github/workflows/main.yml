@@ -1,0 +1,29 @@
+name: Heroku Deploy
+
+on:
+  push:
+    branch:
+      - main
+
+jobs:
+  heroku-dev:
+    runs-on: ubuntu-latest
+    environment: prod
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Render env file
+        uses: nowactions/envsubst@v1
+        with:
+          input: ./.env.tpl
+          output: ./.env
+        env:
+          FOO: fool
+
+      - name: Check env
+        uses: actions/github-script@v6
+        with:
+          script: |
+            cat ./.env
+            echo ${FOO}
+            echo ${BAR}
