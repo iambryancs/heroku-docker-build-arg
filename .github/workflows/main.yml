@@ -23,6 +23,5 @@ jobs:
       - name: Check env
         run: |
           cat ./.env
-          echo FOO is ${FOO}
-          echo BAR is ${BAR}
-          printenv
+          echo "\nFOO is ${FOO}"
+          echo "\nBAR is ${secrets.BAR}"
